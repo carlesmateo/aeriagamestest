@@ -1,0 +1,54 @@
+
+
+
+	php test for Aeria Games
+
+	The codebase used is a small API for a tiny book database stored in a local XML file.
+	The basic services are get, list and search. Here is a short description for the services:
+
+	get
+		Usage: /get/@bookid
+
+		Returns with the book record on the given id or with an error message if not found.
+
+		Example: webtest/get/bk101
+
+	list
+		Usage: /list[?@filter1=@value1&@filter2=@value2...]
+
+		If used without filters it returns with all the records in the document.
+		The filters can be: author, genre, price.
+		The service is looking for all the records exactly matching the filters (genre=Fantasy and price=5.95 etc...).
+
+		Example: webtest/list?genre=Fantasy&price=5.95
+
+	search
+		Usage: /search[/@scope]?q=@string
+
+		Similar to the list service but it is not testing for full match but tests if the property of the book
+		contains the @string parameter. The scope by default contains all the properties. If it is called with a
+		defined scope then it looks only in those.
+		The scope can contain:author, title, genre, price, publish_date, description separated with + signs.
+
+		Example: webtest/search/title+description?q=Guide
+
+
+	Set up an apache with php 5 and install the attached code.
+
+	Tasks:
+		- get rid of the errors blocking the services
+		- finish the get service
+		- implement the filter handling for the list service
+		- implement the search service
+
+	Extras:
+		+ JSON output mode
+		+ paging for list and search services
+
+
+	Good luck!
+
+	download the codebase
+
+
+http://mp.aeriagames.com/fx/web_test.zip
