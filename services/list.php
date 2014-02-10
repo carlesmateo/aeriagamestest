@@ -1,6 +1,6 @@
 <?php
 
-$books = new SmartXML(file_get_contents("../data/books.xml"));
+$o_books = new SmartXML(file_get_contents("../data/books.xml"));
 
 
 $validFilters = array_flip(array("author","genre","price"));
@@ -14,7 +14,7 @@ if(!empty($filters))
 }
 
 // get results
-$results = $books->xpath->query($xquery);
+$results = $o_books->xpath->query($xquery);
 //echo $xquery;
 
 if($results->count())

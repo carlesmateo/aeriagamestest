@@ -1,0 +1,34 @@
+Carles Mateo
+
+This is the changelog file where I explain all the changes done.
+It is much more explicit that it would be in real use, so you can see what steps I did to fix and extend your code.
+The history starts from the bottom and goes up.
+
+2014-02-09
+
+
+2014-02-08
+Changed get.php to allow search for id attribute of books with xpath:
+// XPATH query
+$results = $o_books->xpath->query('/catalog/book[@id=\''.$book_id.'\']');
+With this the second demand was done:
+
+
+Fixed bug in core/basics.php : The autoload tries to load in the PATH/library but the right folder name is PATH/libraries
+To fix it a new constant was created: PATH_LIBRARIES.
+With this the first demand was done:
+        - get rid of the errors blocking the services
+
+2014-02-07
+Created a constant for the type of response. Constants are visible inside classes and across all the code so this will be very straightforward.
+
+Added a filter based on the url used. If the url called is json.aeriatest.loc then the response will be sent in Json format. If is html.aeriatest.loc then the response will be in html format. (easier for debug)
+
+I start replacing all the " double quotes for ' single quotes, because is much more performant in PHP. (magic quotes use more CPU and if it is not necessary to replace with variables and special chars inside, is better to go with single quotes).
+
+Added catfwcore/requests.class. That is one of the classes from my PHP Framework. It is a good sample of hte glueless use of the classes, and the namespaces.
+
+Created catfwcore/ folder to put my core classes, separated from the original from the exercise.
+
+Refactor form $books to $o_books to reflect that we deal with an Object.
+

@@ -1,11 +1,11 @@
 <?php
 
-$books = new SmartXML(file_get_contents("../data/books.xml"));
+$o_books = new SmartXML(file_get_contents("../data/books.xml"));
 
 $book_id = isset(Router::$uri[1]) ? Router::$uri[1] : 0;
 
 // XPATH query
-$results = $books->xpath->query("/catalog/book");
+$results = $o_books->xpath->query('/catalog/book[@id=\''.$book_id.'\']');
 
 if($results->count())
 {
@@ -13,5 +13,5 @@ if($results->count())
 }
 else
 {
-	echo IO::error("Book not found");
+	echo IO::error('Book not found');
 }
