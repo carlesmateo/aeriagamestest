@@ -4,13 +4,22 @@ This is the changelog file where I explain all the changes done.
 It is much more explicit that it would be in real use, so you can see what steps I did to fix and extend your code.
 The history starts from the bottom and goes up.
 
-2014-02-10
+2014-02-11
+Finishing the extra JSON
 
+2014-02-10
+Created and finished search.php
+With this the fourth demand was done:
+        - implement the search service
+
+Also a security system to check against injection of wrong parameters has been made.
 
 2014-02-09
-Changed list.php to allow search for 0,1,2, or 3 attributtes.
+Changed list.php to allow search for 0,1,2, or 3 attributes.
 
 Test it with:
+http://json.aeriatest.loc/list?genre=Fantasy&author=Ralls,%20Kim&price=5.95
+http://xml.aeriatest.loc/list?genre=Fantasy&author=Ralls,%20Kim&price=5.95
 http://html.aeriatest.loc/list?genre=Fantasy&author=Ralls,%20Kim&price=5.95
 With this the third demand was done:
         - implement the filter handling for the list service
