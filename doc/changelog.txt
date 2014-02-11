@@ -5,6 +5,27 @@ It is much more explicit that it would be in real use, so you can see what steps
 The history starts from the bottom and goes up.
 
 2014-02-11
+Finished the extra page for search service
+Pass parameter page to check:
+http://json.aeriatest.loc/search/description+author?q=a&page=2
+
+Finished the extra page for list service
+Pass parameter page to check:
+http://json.aeriatest.loc/list?genre=Fantasy&page=1
+Only shows the page 1 (in groups of 5 registers)
+
+http://json.aeriatest.loc/list?genre=Fantasy&page=2
+Shows the page 2 or <results></results> if there was no page 2.
+
+http://json.aeriatest.loc/list?genre=Fantasy
+Shows all the registers for genre=Fantasy
+
+http://json.aeriatest.loc/list?page=2
+Shows page 2 for all the registers
+
+http://json.aeriatest.loc/list?page=3
+Shows page 3 for all the registers (only one result in page 3)
+
 Finished the extra JSON
 Some distributions have disables json extensions due to license conflicts. Do:
     sudo apt-get install php5-json

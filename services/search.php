@@ -3,7 +3,7 @@
  * Creator:      Carles Mateo
  * Date:         2014-02-10 23:53
  * Last Updater: Carles Mateo
- * Last Updated: 2014-02-11 01:50
+ * Last Updated: 2014-02-11 02:33
  * Filename:     search.php
  * Description:  Search Service
  *               Test it with_
@@ -15,6 +15,9 @@ $o_books = new SmartXML(file_get_contents('../data/books.xml'));
 
 $s_subfilter = Router::$uri[1];
 $s_search = $_GET['q'];
+
+$i_num_results_per_page = 5;
+$s_page = (isset($_GET['page']) ? $_GET['page'] : '0');
 
 $st_valid_subfilters = Array('author', 'title', 'genre', 'price', 'publish_date', 'description');
 
@@ -54,11 +57,32 @@ if ($b_bad_scope == false) {
     // get results
     $results = $o_books->xpath->query($s_xquery);
 
+    $i_counter = 0;
+    $i_page = 1;
+    $b_page_results_printed = false;
+
     if($results->count())
     {
         echo '<results>';
-        foreach($results as $book)
-            echo $book."\n";
+        foreach($results as $book) {
+            $i_counter++;
+            if ($i_counter > $i_num_results_per_page) {
+                $i_counter = 0;
+                $i_page++;
+            }
+
+            if (intval($s_page) == 0 || $i_page == intval($s_page)) {
+                $b_page_results_printed = true;
+
+                echo $book."\n";
+            } else {
+                // We don't have to print
+                // We check if we printed before, in that case do not waste more CPU on useless cycles
+                if ($b_page_results_printed == true) {
+                    break;
+                }
+            }
+        }
         echo '</results>';
     }
     else
