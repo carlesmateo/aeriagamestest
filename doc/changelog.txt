@@ -5,7 +5,20 @@ It is much more explicit that it would be in real use, so you can see what steps
 The history starts from the bottom and goes up.
 
 2014-02-11
-Finishing the extra JSON
+Finished the extra JSON
+Some distributions have disables json extensions due to license conflicts. Do:
+    sudo apt-get install php5-json
+    sudo service apache2 restart
+to resolve this in Ubuntu 13.10. Otherwise you'll get a PHP Fatal error:  Call to undefined function json_encode() in /www/aeriagamestest/services/get.php on line 28
+
+So for:
+http://json.aeriatest.loc/get/bk102
+
+You get:
+{"operation":"get","status":"ok","result":"<book id=\"bk102\">\n  <author>Ralls, Kim<\/author>\n  <title>Midnight Rain<\/title>\n  <genre>Fantasy<\/genre>\n  <price>5.95<\/price>\n  <publish_date>2000-12-16<\/publish_date>\n  <description>A former architect battles corporate zombies, \n      an evil sorceress, and her own childhood to become queen \n      of the world.<\/description>\n<\/book>","error_code":0,"error_message":""}
+With this the extra demand was done:
+        + JSON output mode
+
 
 2014-02-10
 Created and finished search.php

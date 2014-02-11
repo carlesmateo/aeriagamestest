@@ -11,7 +11,6 @@ if (RESPONSE_MODE == 'xml') {
     header('Content-type: text/html; charset=utf-8');
 }
 
-
 define('PATH_SERVER','http://'.$_SERVER['SERVER_NAME']);
 define('PATH_BASE','../');
 define('PATH_CORE',PATH_BASE.'core/');

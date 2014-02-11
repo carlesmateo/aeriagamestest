@@ -16,7 +16,9 @@ class Service{
 	
 	public function renderPage()
 	{
-		echo "<?xml version=\"1.0\"?>\n";
+        if (RESPONSE_MODE == 'xml') {
+        	echo "<?xml version=\"1.0\"?>\n";
+        }
 		return $this->run("services/".$this->file);
 	}
 
