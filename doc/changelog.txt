@@ -4,15 +4,23 @@ This is the changelog file where I explain all the changes done.
 It is much more explicit that it would be in real use, so you can see what steps I did to fix and extend your code.
 The history starts from the bottom and goes up.
 
-2014-02-09
+2014-02-10
 
+
+2014-02-09
+Changed list.php to allow search for 0,1,2, or 3 attributtes.
+
+Test it with:
+http://html.aeriatest.loc/list?genre=Fantasy&author=Ralls,%20Kim&price=5.95
+With this the third demand was done:
+        - implement the filter handling for the list service
 
 2014-02-08
 Changed get.php to allow search for id attribute of books with xpath:
 // XPATH query
 $results = $o_books->xpath->query('/catalog/book[@id=\''.$book_id.'\']');
 With this the second demand was done:
-
+        - finish the get service
 
 Fixed bug in core/basics.php : The autoload tries to load in the PATH/library but the right folder name is PATH/libraries
 To fix it a new constant was created: PATH_LIBRARIES.
